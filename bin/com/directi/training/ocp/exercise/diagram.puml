@@ -1,0 +1,26 @@
+@startuml ResourcesManagmenet
+
+interface Resource {
+    +int allocate()
+    +void free(int resourceId)
+}
+
+class ResourceAllocator {
+    +int allocateResource(Resource resource)
+    +void freeResource(Resource resource, int resourceId)
+}
+
+class TimeSlot {
+    +int allocate()
+    +void free(int resourceId)
+}
+
+class SpaceSlot {
+    +int allocate()
+    +void free(int resourceId)
+}
+
+Resource <|.. TimeSlot
+Resource <|.. SpaceSlot
+
+@enduml

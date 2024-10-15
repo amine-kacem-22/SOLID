@@ -1,16 +1,10 @@
 package com.directi.training.isp.exercise;
 
-public interface Door
-{
+// Basic door interface for standard operations
+public interface BasicDoor {
     void lock();
-
     void unlock();
-
     void open();
-
     void close();
-
-    void timeOutCallback();
-
-    void proximityCallback();
 }
+

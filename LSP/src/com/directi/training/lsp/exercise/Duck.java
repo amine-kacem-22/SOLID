@@ -1,14 +1,7 @@
 package com.directi.training.lsp.exercise;
 
-public class Duck
-{
-    public void quack()
-    {
-        System.out.println("Quack...");
-    }
-
-    public void swim()
-    {
-        System.out.println("Swim...");
-    }
+// Base class representing a Duck
+public abstract class Duck {
+    public abstract void quack();
+    public abstract void swim();
 }

@@ -1,0 +1,40 @@
+@startuml db
+package com.directi.training.dip.exercise {
+
+    interface Encoder {
+        +encode(String input): String
+    }
+
+    class Base64Encoder implements Encoder {
+        +encode(String input): String
+    }
+
+    interface Database {
+        +write(String inputString): int
+    }
+
+    class MyDatabase implements Database {
+        -static Map<Integer, String> _data
+        -static int _count
+        +write(String inputString): int
+    }
+
+    class EncodingModule {
+        -Encoder encoder
+        -Database database
+        +encodeWithFiles()
+        +encodeBasedOnNetworkAndDatabase()
+    }
+
+    class EncodingModuleClient {
+        +main(String[] args)
+    }
+
+    EncodingModuleClient -> EncodingModule
+    EncodingModule -> Encoder
+    EncodingModule -> Database
+    MyDatabase ..|> Database
+    Base64Encoder ..|> Encoder
+}
+
+@enduml

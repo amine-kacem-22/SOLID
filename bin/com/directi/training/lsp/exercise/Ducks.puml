@@ -1,0 +1,23 @@
+@startuml ducks
+
+abstract class Duck {
+    +quack()
+    +swim()
+}
+
+class RealDuck {
+    +quack()
+    +swim()
+}
+
+class ElectronicDuck {
+    +quack()
+    +swim()
+    +turnOn()
+    +turnOff()
+}
+
+Duck <|-- RealDuck
+Duck <|-- ElectronicDuck
+
+@enduml

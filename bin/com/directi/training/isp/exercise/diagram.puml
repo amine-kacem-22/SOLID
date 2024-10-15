@@ -1,0 +1,50 @@
+@startuml Doors
+package com.directi.training.isp.exercise {
+    
+    interface BasicDoor {
+        +lock()
+        +unlock()
+        +open()
+        +close()
+    }
+    
+    interface SensingDoorCallbacks {
+        +proximityCallback()
+    }
+    
+    interface TimedDoorCallbacks {
+        +timeOutCallback()
+    }
+    
+    class SensingDoor implements BasicDoor, SensingDoorCallbacks {
+        -boolean _locked
+        -boolean _opened
+        +lock()
+        +unlock()
+        +open()
+        +close()
+        +proximityCallback()
+    }
+    
+    class TimedDoor implements BasicDoor, TimedDoorCallbacks {
+        -static final int TIME_OUT
+        -boolean _locked
+        -boolean _opened
+        +lock()
+        +unlock()
+        +open()
+        +close()
+        +timeOutCallback()
+    }
+    
+    class Sensor {
+        +register(SensingDoorCallbacks door)
+    }
+    
+    class Timer {
+        +register(long timeOut, TimedDoorCallbacks door)
+    }
+
+}
+
+@enduml
